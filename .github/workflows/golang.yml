@@ -1,0 +1,25 @@
+name: golang
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  golang:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version-file: go.mod
+
+      - name: go test
+        run: go test -v ./...
+
+      - name: go build
+        run: go build .

@@ -1,0 +1,16 @@
+{
+    "owner": "Owner1",
+    "classType": "IN",
+    "rrType": "PTR",
+    "data1": "data1",
+    "publishing": "ALWAYS",
+    "ttl": 3200,
+    "infraType": "OBJECT",
+    "infraFQDN": "infraFQDN",
+    "data2": "data2",
+    "data3": "data3",
+    "data4": "data4",
+    "infraAddr": "192.168.88.1",
+    "isCreatingReverseZoneRR": true,
+    "isDefaultRR": false
+}

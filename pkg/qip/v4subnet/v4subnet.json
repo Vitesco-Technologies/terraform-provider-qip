@@ -1,0 +1,81 @@
+{
+  "subnetAddress": "string",
+  "subnetMask": "string",
+  "networkAddress": "string",
+  "subnetName": "string",
+  "subnetOrg": "string",
+  "application": "string",
+  "location": {
+    "id": 0,
+    "street1": "string",
+    "street2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": "string",
+    "country": "string"
+  },
+  "contact": {
+    "id": 0,
+    "firstName": "string",
+    "lastName": "string",
+    "telephone": "string",
+    "pager": "string",
+    "email": "string"
+  },
+  "hardwareType": "ETHERNET",
+  "tftpServerName": "string",
+  "allowDHCPClientsToModifyDynamicObjectRRs": "SAME_AS_IN_GLOBAL_POLICIES",
+  "domains": {
+    "name": [
+      "string"
+    ]
+  },
+  "showUsage": "string",
+  "checkUsage": "string",
+  "subnetDescription": "string",
+  "sharedNetwork": "string",
+  "warningType": 0,
+  "warningPercentage": 0,
+  "preferredDNSServers": {
+    "name": [
+      "string"
+    ]
+  },
+  "preferredTimeServers": {
+    "name": [
+      "string"
+    ]
+  },
+  "defaultRouters": {
+    "name": [
+      "string"
+    ]
+  },
+  "defaultDHCPServer": "string",
+  "defaultDHCPOptionTemplate": "string",
+  "defaultDHCPPolicyTemplate": "string",
+  "primaryInterface": true,
+  "optionalAttributeList": {
+    "udas": [
+      {
+        "name": "string",
+        "value": "string"
+      }
+    ],
+    "groups": [
+      {
+        "name": "string",
+        "udas": [
+          {
+            "name": "string",
+            "value": "string"
+          }
+        ]
+      }
+    ]
+  },
+  "addressTemplate": "string",
+  "localTotalDynamicObjects": 0,
+  "localLeasedDynamicObjects": 0,
+  "localPercentDynamicObjectsUsed": 0
+}
