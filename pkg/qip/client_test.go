@@ -56,7 +56,7 @@ func TestClient_Login(t *testing.T) {
 		})
 
 	err = c.Login("unknown-user", "dummy-password")
-	require.NoError(t, err)
+	assert.Error(t, err) //nolint: testifylint
 
 	var targetErr *qip.HTTPUnauthorizedError
 
