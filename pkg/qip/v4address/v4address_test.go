@@ -24,6 +24,7 @@ import (
 
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/test"
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/v4address"
@@ -37,7 +38,7 @@ func TestLoad(t *testing.T) {
 		httpmock.NewStringResponder(200, `{"objectAddr":"192.0.2.50","subnetAddr":"192.0.2.0","objectName":"test-host"}`))
 
 	addr, err := v4address.Load(c, "192.0.2.50")
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "192.0.2.50", addr.ObjectAddr)
 }
 
@@ -55,7 +56,7 @@ func TestCreate(t *testing.T) {
 		httpmock.NewStringResponder(200, ""))
 
 	err := v4address.Create(c, addr)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func TestUpdate(t *testing.T) {
@@ -72,7 +73,7 @@ func TestUpdate(t *testing.T) {
 		httpmock.NewStringResponder(200, ""))
 
 	err := v4address.Update(c, addr)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func TestDelete(t *testing.T) {
@@ -83,7 +84,7 @@ func TestDelete(t *testing.T) {
 		httpmock.NewStringResponder(200, ""))
 
 	err := v4address.Delete(c, "192.0.2.55")
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func TestE2E(t *testing.T) {
@@ -104,10 +105,10 @@ func TestE2E(t *testing.T) {
 	}
 
 	err := v4address.Create(c, addrObj)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	err = v4address.Delete(c, addr)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func TestE2E_WithSelect(t *testing.T) {
@@ -115,7 +116,7 @@ func TestE2E_WithSelect(t *testing.T) {
 	testSubnet, testAddrRange := getTestSubnet(t)
 
 	addr, err := v4address.CreateSelected(c, testSubnet, testAddrRange)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.NotEmpty(t, addr)
 
 	// Not tested here - we update the selected address
@@ -131,16 +132,16 @@ func TestE2E_WithSelect(t *testing.T) {
 	}
 
 	err = v4address.Update(c, addrObj)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	updatedObj, err := v4address.Load(c, addr)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "Virtualized Server", updatedObj.ObjectClass)
 	assert.NotEmpty(t, updatedObj.ObjectDesc)
 	assert.NotEqual(t, "None", updatedObj.DomainName)
 
 	err = v4address.Delete(c, addr)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func getTestSubnet(t *testing.T) (string, *v4address.SelectedAddrRange) {

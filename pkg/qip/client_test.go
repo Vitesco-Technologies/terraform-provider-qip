@@ -25,6 +25,7 @@ import (
 
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip"
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/test"
@@ -35,7 +36,7 @@ func TestClient_Login(t *testing.T) {
 	defer httpmock.DeactivateAndReset()
 
 	c, err := qip.NewClient(test.QIPServer, test.QIPOrg)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	httpmock.RegisterResponder("POST", test.QIPServer+"/api/login",
 		func(req *http.Request) (*http.Response, error) {
@@ -55,13 +56,13 @@ func TestClient_Login(t *testing.T) {
 		})
 
 	err = c.Login("unknown-user", "dummy-password")
-	assert.Error(t, err)
+	require.NoError(t, err)
 
 	var targetErr *qip.HTTPUnauthorizedError
 
-	assert.ErrorAs(t, err, &targetErr)
+	require.ErrorAs(t, err, &targetErr)
 
 	err = c.Login("admin", "password123")
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "THIS_WOULD_BE_A_BASE64_TOKEN", c.AuthToken)
 }

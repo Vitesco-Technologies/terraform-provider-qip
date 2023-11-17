@@ -25,6 +25,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/rest"
 )
@@ -39,15 +40,15 @@ var testStructData = testStruct{"test"}
 
 func TestNewRESTRequest(t *testing.T) {
 	request, err := rest.NewRequest("GET", "http://localhost/resource", nil)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Nil(t, request.Body)
 
 	request, err = rest.NewRequest("POST", "http://localhost/login", testStructData)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.NotNil(t, request.Body)
 
 	data, err := io.ReadAll(request.Body)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, testStructJSON, string(data))
 }
 
@@ -58,6 +59,6 @@ func TestUnmarshalRESTResponse(t *testing.T) {
 
 	var o testStruct
 	err := rest.UnmarshalResponse(response, &o)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "test", o.Something)
 }

@@ -23,6 +23,7 @@ import (
 
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/rr"
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/test"
@@ -52,7 +53,7 @@ func TestLoadAllForObject(t *testing.T) {
 		  }`))
 
 	records, err := rr.LoadAllForObject(c, "192.0.2.50")
-	assert.NoError(t, err)
+	require.NoError(t, err)
 
 	if assert.Len(t, records, 1) {
 		assert.Equal(t, "192.0.2.50", records[0].InfraAddr)
@@ -70,7 +71,7 @@ func TestCreate(t *testing.T) {
 	record := rr.NewAForObject("*.test.int.example.com", "192.0.2.50")
 
 	err := rr.Create(c, record)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func TestUpdate(t *testing.T) {
@@ -84,7 +85,7 @@ func TestUpdate(t *testing.T) {
 	newRecord := rr.NewAForObject("*.test2.int.example.com", "192.0.2.50")
 
 	err := rr.Update(c, oldRecord, newRecord)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 func TestDelete(t *testing.T) {
@@ -97,5 +98,5 @@ func TestDelete(t *testing.T) {
 	oldRecord := rr.NewAForObject("*.test2.int.example.com", "192.0.2.50")
 
 	err := rr.Delete(c, oldRecord)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }

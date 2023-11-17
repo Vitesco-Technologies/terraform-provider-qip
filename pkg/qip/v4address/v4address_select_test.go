@@ -25,6 +25,7 @@ import (
 
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/test"
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/v4address"
@@ -39,7 +40,7 @@ func TestCreateSelected(t *testing.T) {
 		httpmock.NewStringResponder(200, `{"objectAddr":"192.0.2.2"}`))
 
 	addr, err := v4address.CreateSelected(c, "192.0.2.0", nil)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "192.0.2.2", addr)
 
 	httpmock.RegisterResponder("PUT", test.QIPServer+"/api/v1/"+test.QIPOrg+"/selectedv4address/192.0.2.0.json",
@@ -50,7 +51,7 @@ func TestCreateSelected(t *testing.T) {
 		EndAddress:   "192.0.2.30",
 	}
 	addr, err = v4address.CreateSelected(c, "192.0.2.0", addressRange)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "192.0.2.25", addr)
 }
 
@@ -62,7 +63,7 @@ func TestDeleteSelected(t *testing.T) {
 		httpmock.NewStringResponder(200, ``))
 
 	err := v4address.DeleteSelected(c, "192.0.2.25")
-	assert.NoError(t, err)
+	require.NoError(t, err)
 }
 
 // TestAccCreateBulkSelected will test if multiple selects against the QIP API fail.
@@ -88,7 +89,7 @@ func TestAccCreateBulkSelected(t *testing.T) {
 			defer wait.Done()
 
 			addr, err := v4address.CreateSelected(c, subnet, addressRange)
-			assert.NoError(t, err)
+			require.NoError(t, err)
 			assert.NotEmpty(t, addr)
 
 			t.Logf("Selected address #%d: %s", num, addr)
@@ -106,7 +107,7 @@ func TestAccCreateBulkSelected(t *testing.T) {
 			continue
 		}
 
-		assert.NoError(t, v4address.DeleteSelected(c, *addrs[num]))
+		require.NoError(t, v4address.DeleteSelected(c, *addrs[num]))
 	}
 }
 

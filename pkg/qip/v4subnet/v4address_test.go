@@ -24,6 +24,7 @@ import (
 
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/test"
 	"github.com/Vitesco-Technologies/terraform-provider-qip/pkg/qip/v4subnet"
@@ -38,7 +39,7 @@ func TestLoad(t *testing.T) {
 			`{"subnetAddress":"192.0.2.0","subnetMask":"255.255.255.0","subnetName":"test-subnet"}`))
 
 	addr, err := v4subnet.Load(c, "192.0.2.0")
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, "192.0.2.0", addr.SubnetAddress)
 	assert.Equal(t, "test-subnet", addr.SubnetName)
 }
@@ -52,7 +53,7 @@ func TestAccLoad(t *testing.T) {
 	}
 
 	subnet, err := v4subnet.Load(c, testSubnet)
-	assert.NoError(t, err)
+	require.NoError(t, err)
 	assert.Equal(t, testSubnet, subnet.SubnetAddress)
 	assert.NotEmpty(t, subnet.SubnetName)
 }

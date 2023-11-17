@@ -80,6 +80,8 @@ linters-settings:
         deny:
           - pkg: reflect
             desc: Please don't use reflect package
+  goconst:
+    ignore-tests: true
   goheader:
     template: |-
       Copyright {{ YEAR }} Vitesco Technologies Group AG
