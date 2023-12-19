@@ -1,16 +1,16 @@
 name: golang
 
-# TODO: define new release method. Terraform Registry?
 on:
   push:
     tags:
       - v*
 
+permissions:
+  contents: write
+
 jobs:
   golang:
-    runs-on: [self-hosted,cloudplatforms]
-    # TODO: github.com
-    # runs-on: [ubuntu-latest]
+    runs-on: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,12 +22,12 @@ jobs:
         with:
           go-version-file: go.mod
 
-      # - name: Import GPG key
-      #   uses: crazy-max/ghaction-import-gpg@v6
-      #   id: import_gpg
-      #   with:
-      #     gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-      #     passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        id: import_gpg
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
       - name: Run goreleaser
         uses: goreleaser/goreleaser-action@v5
