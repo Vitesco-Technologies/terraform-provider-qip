@@ -1,8 +1,8 @@
 HOSTNAME=registry.terraform.io
-NAMESPACE=vitesco-technologies
+NAMESPACE=Vitesco-Technologies
 NAME=qip
 BINARY=terraform-provider-${NAME}
-VERSION=0.1.99
+VERSION=1.99.99
 OS_ARCH=$(shell go env GOOS)_$(shell go env GOARCH)
 
 default: install

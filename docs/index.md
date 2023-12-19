@@ -3,7 +3,7 @@
 page_title: "qip Provider"
 subcategory: ""
 description: |-
-  
+
 ---
 
 # qip Provider
@@ -23,7 +23,7 @@ provider "qip" {
 terraform {
   required_providers {
     qip = {
-      source  = "registry.terraform.io/vitesco-technologies/qip"
+      source  = "Vitesco-Technologies/qip"
       version = ">0"
     }
   }

@@ -46,7 +46,7 @@ func main() {
 
 	opts := &plugin.ServeOpts{
 		Debug:        debugMode,
-		ProviderAddr: "registry.terraform.io/vitesco-technologies/qip",
+		ProviderAddr: "Vitesco-Technologies/qip",
 		ProviderFunc: provider.New(version),
 	}
 
