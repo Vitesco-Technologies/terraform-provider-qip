@@ -1,6 +1,15 @@
 # Terraform Provider for Nokia QIP
 
+![GitHub tag (with filter)](https://img.shields.io/github/v/release/Vitesco-Technologies/terraform-provider-qip)
+[![Terraform Registry](https://img.shields.io/badge/Terraform_Registry-Vitesco--Technologies%2Fqip-blue)][terraform-registry]
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Vitesco-Technologies/terraform-provider-qip/golang.yml)
+![GitHub License](https://img.shields.io/github/license/Vitesco-Technologies/terraform-provider-qip)
+[![Open Source](https://img.shields.io/badge/Vitesco_Technologies-open--source-yellow)](https://github.com/Vitesco-Technologies)
+
+
 The provider for Nokia QIP will allow you to retrieve metadata from QIP or manage IPv4 addresses including their DNS names.
+
+Documentation and releases can also be found on the [Terraform Registry under Vitesco-Technologies/qip][terraform-registry].
 
 Features:
 
@@ -15,7 +24,7 @@ Build based on the Swagger API documentation that should be available with your 
 
 ## How to use
 
-Please see the [documentation](docs/) for some examples.
+Please see the [documentation on the Terraform registry][terraform-registry] for some examples.
 
 Very basic usage:
 
@@ -74,3 +83,5 @@ Then, run the following command to initialize the workspace and apply the sample
 ```shell
 terraform init && terraform apply
 ```
+
+[terraform-registry]: https://registry.terraform.io/providers/Vitesco-Technologies/qip/latest
