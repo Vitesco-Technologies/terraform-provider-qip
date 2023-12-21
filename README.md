@@ -9,16 +9,15 @@
 
 The provider for Nokia QIP will allow you to retrieve metadata from QIP or manage IPv4 addresses including their DNS names.
 
-Documentation and releases can also be found on the [Terraform Registry under Vitesco-Technologies/qip][terraform-registry].
+Documentation and releases can also be found on the [Terraform Registry under Vitesco-Technologies/qip][terraform-registry],
+which also can be found as [Vitesco-Technologies/qip-address on the Terraform Registry](https://registry.terraform.io/modules/Vitesco-Technologies/qip-address/module/latest).
 
 Features:
 
 - Data sources for `qip_v4address` and `qip_v4subnet`
 - Manage addresses with `qip_v4address`
 
-<!-- TODO: when published
 Also see the Terraform module [qip-address](https://github.com/Vitesco-Technologies/terraform-module-qip-address).
--->
 
 Build based on the Swagger API documentation that should be available with your QIP instance: `https://qip.example.com.com/rest-api/`
 

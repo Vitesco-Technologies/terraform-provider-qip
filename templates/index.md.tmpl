@@ -13,9 +13,8 @@ Features:
 - Data sources for `qip_v4address` and `qip_v4subnet`
 - Manage addresses with `qip_v4address`
 
-<!-- TODO: when published
-Also see the Terraform module [qip-address](https://github.com/Vitesco-Technologies/terraform-module-qip-address).
--->
+Also see the Terraform module [qip-address](https://github.com/Vitesco-Technologies/terraform-module-qip-address),
+which also can be found as [Vitesco-Technologies/qip-address on the Terraform Registry](https://registry.terraform.io/modules/Vitesco-Technologies/qip-address/module/latest).
 
 Build based on the Swagger API documentation that should be available with your QIP instance: `https://qip.example.com.com/rest-api/`
 
