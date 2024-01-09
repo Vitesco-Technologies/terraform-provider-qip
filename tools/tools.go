@@ -2,7 +2,7 @@
 // +build tools
 
 /*
-Copyright 2023 Vitesco Technologies Group AG
+Copyright 2024 Vitesco Technologies Group AG
 
 SPDX-License-Identifier: Apache-2.0
 
