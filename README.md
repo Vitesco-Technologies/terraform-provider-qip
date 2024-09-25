@@ -1,11 +1,16 @@
 # Terraform Provider for Nokia QIP
 
+> **⚠️ Important Notice:** Vitesco Technologies has ceased using Nokia QIP as the main DNS tool and we currently don't use this project anymore. No further updates or maintenance will be provided for now.
+>
+> During our merging with Schaeffler, we will be re-evaluating this tool.
+>
+> Feel free to keep using the tool if you are able to support yourself. Add your comments to [#18](https://github.com/Vitesco-Technologies/terraform-provider-qip/issues/18).
+
 ![GitHub tag (with filter)](https://img.shields.io/github/v/release/Vitesco-Technologies/terraform-provider-qip)
 [![Terraform Registry](https://img.shields.io/badge/Terraform_Registry-Vitesco--Technologies%2Fqip-blue)][terraform-registry]
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Vitesco-Technologies/terraform-provider-qip/golang.yml)
 ![GitHub License](https://img.shields.io/github/license/Vitesco-Technologies/terraform-provider-qip)
 [![Open Source](https://img.shields.io/badge/Vitesco_Technologies-open--source-yellow)](https://github.com/Vitesco-Technologies)
-
 
 The provider for Nokia QIP will allow you to retrieve metadata from QIP or manage IPv4 addresses including their DNS names.
 
